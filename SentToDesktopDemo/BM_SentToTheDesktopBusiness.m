@@ -11,13 +11,21 @@
 #import "AppDelegate.h"
 @implementation BM_SentToTheDesktopBusiness
 
+- (instancetype)init {
+    if (self = [super init]) {
+        __weak AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [appDelegate startServer];
+    }
+    return self;
+}
+
 
 -(void)sendDesktopGetName:(NSString*)name GetIconStr:(NSString*)iconStr GetVCID:(NSString*)VCid OpenUrlStr:(NSString*)OpenUrlstr{
     {
         __weak AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        
+//
         //开启服务
-        [appDelegate startServer];
+//        [appDelegate startServer];
         
         //服务账号名称
         NSString * accountNameStr = [[NSString alloc] init];
